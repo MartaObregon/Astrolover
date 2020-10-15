@@ -41,6 +41,7 @@ A dating social platform based on astrology and a complex algorythm that determi
     - username
     - email
     - password
+    - date of birth
     
 -GET /dashboard/:id/edit
   -render edit-form.hbs with full public information of the user
@@ -51,7 +52,7 @@ A dating social platform based on astrology and a complex algorythm that determi
 -POST /dashboard/:id/edit
   -redirects to /dashboard/home if user saved changes
   - body:
-    -date of birth
+    
     -gender
     -phone number
     -city
@@ -63,7 +64,7 @@ A dating social platform based on astrology and a complex algorythm that determi
  -renders dashboard-home.hbs
  -redirects to /dashboard/:id/edit if user wants to edit public info
  -redirects to /dashboard/:id/potentials if user wants to see other users
- -redirects to /dashboard/:id/activity if user wants to see interactions with users and matched users contacts details.
+ -redirects to /dashboard/:id/datelog if user wants to see interactions with users and matched users contacts details.
  - redirects to / if user logs out
  
 -GET /dashboard/:id/potentials
@@ -73,19 +74,36 @@ A dating social platform based on astrology and a complex algorythm that determi
   -redirect to /dashboard/:id/home
   - redirects to / if user logs out
   
- -GET /dashboard/:id/datelog
+ -GET /dashboard/datelog
   renders dashboard-datelog.hbs
   -redirects to /profile/:id if users want to go to other users profiles that requested invitation to 
   - redirects to /dashboard/:id/potentials
   -redirect to /dashboard/:id/home
   - redirects to / if user logs out
-    
+   
+ -GET /dashboard/datelog/confirmed
+  - renders dashboard-datelog.hbs
+  - update match status to confirmed and add it to My matches
+  
+ -GET /dashboard/datelog/declined
+  - renders dashboard-datelog.hbs
+  - update match status to declined and update my list of requests
+ 
+ -GET /dashboard/datelog/delete
+  - renders dashboard-datelog.hbs
+  - deletes user matched from my matches
+ 
  -GET /profile/:id
   - renders profile-user.hbs
   - redirects to /dashboard/:id/datelog
   - redirects to /dashboard/:id/potentials
    -redirect to /dashboard/:id/home
    - redirects to / if user logs out
+   
+ -GET /profile/:id/requestdate
+  -render dashboard-datelog.hbs
+  - create match in database
+    
     
 ## Models
 
@@ -95,24 +113,23 @@ User model
 username: {type:String, required:true, unique:true}
 password: {type:string, required:true}
 email: {type:string, required:true, unique:true}
-Horoscope: {enum:[“Aries”, “Taurus”, “Gemini”, “Cancer”, “Leo”, “Virgo”, “Libra”, “Sagitarius”, “Scorpio”, “Aquarius”, ”Piscis”, “Capricorn”], type:string, required:true}
-Age: {type:number}
-Profile-img{type:string, required:true}
-pictures:{[type:string]}
-catchphrase:{type:string, required:true, maxLength:100}
+dateOfBirth :{type:string, required:true}
+Profile-img{type:string,}
+pictures:[{type:string}]
+catchphrase:{type:string, maxLength:100}
 city:{type:string}
-SkypeId:{type:string, required:true}
-horoscopeMatches:{enum:[“Aries”, “Taurus”, “Gemini”, “Cancer”, “Leo”, “Virgo”, “Libra”, “Sagitarius”, “Scorpio”, “Aquarius”, ”Piscis”, “Capricorn”], type:string, maxItems:3}
+SkypeId:{type:string}
+
 
 ```
 
-Event model
+Match model
 
 ```
 status:{enum:[pending, accepted, declined], type:string}
-senderId:{type:string, unique:true}
-receiverId:{type:string, unique:true}
-message:{type:string}
+senderId:{ ref: 'user', type: mongoose.Schema.Types.ObjectId}
+receiverId: { ref: 'user', type: mongoose.Schema.Types.ObjectId}
+
 ``` 
 
 ## Backlog
