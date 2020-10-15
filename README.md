@@ -65,7 +65,7 @@ A dating social platform based on astrology and a complex algorythm that determi
  -redirects to /dashboard/:id/edit if user wants to edit public info
  -redirects to /dashboard/:id/potentials if user wants to see other users
  -redirects to /dashboard/:id/datelog if user wants to see interactions with users and matched users contacts details.
- - redirects to / if user logs out
+ -redirects to / if user logs out
  
 -GET /dashboard/:id/potentials
   renders dashboard-potentials.hbs
