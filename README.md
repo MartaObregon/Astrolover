@@ -1,7 +1,7 @@
 # Astrolover
 ## Description
 
-MARTA & LOVRO
+
 
 A dating social platform based on astrology and a complex algorythm that determines best potential lovers for its cosmic users. 
 
