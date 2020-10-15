@@ -44,13 +44,13 @@ A dating social platform based on astrology and a complex algorythm that determi
     - date of birth
     
 -GET /dashboard/:id/edit
-  -render edit-form.hbs with full public information of the user
-  -redirects to /dashboard/home if user saved changes
+  - render edit-form.hbs with full public information of the user
+  - redirects to /dashboard/home if user saved changes
   - redirects to / if user logs out
   
   
 -POST /dashboard/:id/edit
-  -redirects to /dashboard/home if user saved changes
+  - redirects to /dashboard/home if user saved changes
   - body:
     
     -gender
@@ -61,17 +61,17 @@ A dating social platform based on astrology and a complex algorythm that determi
     -SkypeID
     
 -GET /dashboard/:id/home
- -renders dashboard-home.hbs
- -redirects to /dashboard/:id/edit if user wants to edit public info
- -redirects to /dashboard/:id/potentials if user wants to see other users
- -redirects to /dashboard/:id/datelog if user wants to see interactions with users and matched users contacts details.
- -redirects to / if user logs out
+ - renders dashboard-home.hbs
+ - redirects to /dashboard/:id/edit if user wants to edit public info
+ - redirects to /dashboard/:id/potentials if user wants to see other users
+ - redirects to /dashboard/:id/datelog if user wants to see interactions with users and matched users contacts details.
+ - redirects to / if user logs out
  
 -GET /dashboard/:id/potentials
-  renders dashboard-potentials.hbs
-  -redirects to /profile/:id if users want to go to other users profiles
-  - redirects to /dashboard/:id/datelog
-  -redirect to /dashboard/:id/home
+ - renders dashboard-potentials.hbs
+ - redirects to /profile/:id if users want to go to other users profiles
+ - redirects to /dashboard/:id/datelog
+ - redirect to /dashboard/:id/home
   - redirects to / if user logs out
   
  -GET /dashboard/datelog
