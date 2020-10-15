@@ -10,12 +10,12 @@ A dating social platform based on astrology and a complex algorythm that determi
 - **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault 
 - **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
 - **LandingPage** - As a user I want to see a welcome page that gives me the option to either log in as an existing user, or sign up with a new account.
--**RegisterPage** - As a user I want to sign up with my full information so that I can safely share my information and status with others.
+- **RegisterPage** - As a user I want to sign up with my full information so that I can safely share my information and status with others.
 - **Dashboard-home** - As a user I want to be able to access my daily Horoscope advice and preview my own profile info that other users will see.
 - **dashboard-edit** - After the sign up, and whenever the user wants to edit its own public information, the user will have access to edit it on the home page.
--**dashboard-myPotentials** - As a user I want to have access to a suggested list of   other users profiles that fit the Astrolover algorithm criteria.
--**dashboard-datelog** - As a user I want to have access to the interactions with other users, both sent and received. As well I want to have access to the Skype ID after a match is made.
--**otherUser-profile** - As a user I want to have access to the public information about the user I am interested on, as well to have the option of requesting a date.
+- **dashboard-myPotentials** - As a user I want to have access to a suggested list of   other users profiles that fit the Astrolover algorithm criteria.
+- **dashboard-datelog** - As a user I want to have access to the interactions with other users, both sent and received. As well I want to have access to the Skype ID after a match is made.
+- **otherUser-profile** - As a user I want to have access to the public information about the user I am interested on, as well to have the option of requesting a date.
 
 
 ## ROUTES:
