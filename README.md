@@ -53,12 +53,12 @@ A dating social platform based on astrology and a complex algorythm that determi
   - redirects to /dashboard/home if user saved changes
   - body:
     
-    -gender
-    -phone number
-    -city
-    -Catchphrase
-    -profile picture
-    -SkypeID
+    - gender
+    - phone number
+    - city
+    - Catchphrase
+    - profile picture
+    - SkypeID
     
 -GET /dashboard/:id/home
  - renders dashboard-home.hbs
