@@ -112,6 +112,25 @@ senderId:{type:string, unique:true}
 receiverId:{type:string, unique:true}
 message:{type:string}
 ``` 
+
+## Backlog
+
+List of other features outside of the MVPs scope
+
+User profile:
+- see my profile
+- upload my profile picture
+- see other users profile
+- list of events created by the user
+- list events the user is attending
+
+Geo Location:
+- add geolocation to events when creating
+- show event in a map in event detail page
+- show all events in a map in the event list page
+
+
+
 ## Links
 
 ### Trello
