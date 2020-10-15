@@ -3,7 +3,7 @@
 
 MARTA & LOVRO
 
-A dating social platform based on a complex algorythm that determines best potential lovers for its cosmic users. 
+A dating social platform based on astrology and a complex algorythm that determines best potential lovers for its cosmic users. 
 
 ## User Stories
 
@@ -119,17 +119,14 @@ message:{type:string}
 
 List of other features outside of the MVPs scope
 
-User profile:
-- see my profile
-- upload my profile picture
-- see other users profile
-- list of events created by the user
-- list events the user is attending
+Chat
+-create a chat
+-saved the chat in the database
 
 Geo Location:
-- add geolocation to events when creating
-- show event in a map in event detail page
-- show all events in a map in the event list page
+- add geolocation 
+- show only users in the same area
+
 
 
 
