@@ -16,14 +16,14 @@ router.post('/login', (req, res)=>{
   UserModel.findOne({username: username})
     .then((userdata) => {
       if(!userdata){
-        res.status(500).render('auth/signin.hbs', {message: 'User does not exist'})
+        res.status(500).render('auth/register.hbs', {message: 'User does not exist'})
       }
       //console.log('First: ', userdata)
       bcrypt.compare(password, userdata.password)
         .then((result) => {
             if(result){
               req.session.loggedInUser = userdata
-              res.redirect('/dashboard/edit')
+              res.redirect('/dashboard/home')
             } else {
               res.status(500).render('auth/register.hbs', {message: 'Passwords not matching'})
             }
