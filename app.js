@@ -24,6 +24,23 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
+app.use(session({
+  secret: 'topSecret',
+  saveUninitialized: false,
+  resave: false,
+  cookie: {
+      domain: '',
+      maxAge: 24*60*60*1000
+  },
+  store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24*60*60
+  })
+}));
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());

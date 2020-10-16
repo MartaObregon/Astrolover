@@ -9,7 +9,7 @@ router.get('/dashboard/edit', (req, res)=>{
 
 
 router.get('/dashboard/home', (req, res)=>{
-  res.render('dashboard/home.hbs')
+  res.render('dashboard/home.hbs', {username: req.session.loggedInUser.username})
 })
 
 
