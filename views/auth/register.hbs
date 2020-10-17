@@ -1,4 +1,11 @@
+<div class="dev-box">
+    <button><a href="/login">Back to LogIn</a></button>
+    <button class="dev-btn"><a href="/logout">LOGOUT</a></button>
+</div>
+
 <img src="./images/Astrolover-logo.png" alt="logo" class="logo">
+
+
 <div class="login-box">
 <h3>Welcome!</h3>
 <form class="register-form"action="/register" method="POST">
@@ -17,8 +24,7 @@
 
 
 {{#if message}}
-<p>{{message}}</p>
+<p class="message-err">{{message}}</p>
 {{/if}}
 
-<button><a href="/login">Back to LogIn</a></button>
-<button><a href="/logout">LOGOUT</a></button>
+
