@@ -12,13 +12,11 @@ router.get('/login', (req, res)=>{
 
 router.post('/login', (req, res)=>{
   const { username, password} = req.body
-  //console.log('Jorge is the king of Spain!')
   UserModel.findOne({username: username})
     .then((userdata) => {
       if(!userdata){
         res.status(500).render('auth/register.hbs', {message: 'User does not exist'})
       }
-      //console.log('First: ', userdata)
       bcrypt.compare(password, userdata.password)
         .then((result) => {
             if(result){
@@ -65,8 +63,6 @@ router.post('/register', (req, res)=>{
   if (!dateOfBirthReg.test(dateOfBirth)) {
     res.status(500).render('auth/register.hbs', {message: 'Please enter format: DD/MM/YYYY'})
 }
-
-
 
   // CRYPTIN THE PASWORD
   bcrypt.genSalt(10)

@@ -1,4 +1,7 @@
-<form action="/register" method="POST">
+<img src="./images/Astrolover-logo.png" alt="logo" class="logo">
+<div class="login-box">
+<h3>Welcome!</h3>
+<form class="register-form"action="/register" method="POST">
     <label >Email</label>
     <input type="email" name="email" placeholder="Enter email">
     <label >Username</label>
@@ -7,8 +10,11 @@
     <input type="password" name="password" placeholder="Enter password">
     <label >Date of birth</label>
     <input type="text" name="dateOfBirth" placeholder="dd/mm/yyyy">
-    <button type="submit">Register</button>
+    <button  class="login-btn"type="submit">Register</button>
 </form>
+</div>
+
+
 
 {{#if message}}
 <p>{{message}}</p>
