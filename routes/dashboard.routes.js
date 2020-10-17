@@ -4,7 +4,7 @@ const router = express.Router();
 const UserModel = require('../models/User.model')
 
 router.get('/dashboard/edit', (req, res)=>{
-  res.render('dashboard/edit.hbs')
+  res.render('dashboard/edit.hbs', {username: req.session.loggedInUser.username})
 })
 
 
