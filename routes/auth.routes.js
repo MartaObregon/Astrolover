@@ -61,11 +61,11 @@ router.post('/register', (req, res)=>{
     if (!emailReg.test(email)) {
       res.status(500).render('auth/register.hbs', {message: 'Please enter valid email'})
   }
-}
+  }
 
-if(!password){
-  res.status(500).render('auth/register.hbs', {message: 'Please enter all details'})
-} else if (password){
+  if(!password){
+    res.status(500).render('auth/register.hbs', {message: 'Please enter all details'})
+  } else if (password){
   /*
   if (!emailReg.test('')) {
     res.status(500).render('auth/register.hbs', {message: 'Please enter all details'})
@@ -78,16 +78,16 @@ if(!password){
     if (!passwordReg.test(password)) {
       res.status(500).render('auth/register.hbs', {message: 'Password must have one lowercase, one uppercase, a number, a special character and must be atleast 8 digits long'})
   }
-} 
+  } 
 
-if(!dateOfBirth){
+  if(!dateOfBirth){
   res.status(500).render('auth/register.hbs', {message: 'Please enter all details'})
-} else if (dateOfBirth){
+  } else if (dateOfBirth){
   //dateOfBirth
   let dateOfBirthReg = new RegExp(/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/)
   if (!dateOfBirthReg.test(dateOfBirth)) {
     res.status(500).render('auth/register.hbs', {message: 'Please enter format: DD/MM/YYYY'})
-}}
+  }}
 
 
 
@@ -105,8 +105,8 @@ if(!dateOfBirth){
           
             .then(() => {
               console.log('User created')
-              
-              res.redirect('/dashboard/edit')
+              req.session.destroy()
+              res.redirect('/login')
             })
             .catch((err) => {
                 res.render('error.hbs', err)
@@ -114,6 +114,12 @@ if(!dateOfBirth){
         })
     })
 
+})
+
+
+router.get('/logout', (req, res)=>{
+  //console.log(username)
+  res.render('auth/logout.hbs', {username: req.session.destroy()})
 })
 
 

@@ -17,6 +17,26 @@ const userSchema = new Schema(
     dateOfBirth: {
       type:String,
       required:true,
+    },
+    horoscope: {
+      type: String,
+      enum: ["Cancer", "Scorpio", "Pisces", "Aries", "Leo", "Sagittarius", "Taurus", "Virgo", "Capricorn", "Gemini", "Libra", "Aquarius"],
+    },
+    age: {
+      type: Number
+    },
+    occupation: {
+      type: String,
+    },
+    genre: {
+      type: String,
+      enum: ["male", "female"]
+    },
+    catchPhrase: {
+      type: String
+    },
+    phoneNumber: {
+      type: Number
     }
     },
     {

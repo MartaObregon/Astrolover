@@ -1,2 +1,28 @@
+<nav>
+  <a href="/dashboard/home">Home</a>
+  <a href="/dashboard/edit">Edit</a>
+  <a href="/dashboard/datelog">Datelog</a>
+  <a href="/dashboard/otherUser-profile">otherUser</a>
+  <a href="/dashboard/myPotentials">Potentials</a>
+</nav>
+
 <p>You again {{username}} ?! <br> 
 You are in dashboard/ edit page</p>
+
+<form action="/dashboard/edit" method="POST">
+    <label >Horoscope</label>
+    <input type="text" name="horoscope" placeholder="horoscope">
+    <label >Age</label>
+    <input type="number" name="age" placeholder="age">
+    <label >Occupation</label>
+    <input type="text" name="occupation" placeholder="occupation">
+    <label >Genre</label>
+    <input type="text" name="genre" placeholder="genre">
+    <label >Catch phrase</label>
+    <input type="text" name="catchPhrase" placeholder="catch phrase">
+    <label >Phone number</label>
+    <input type="number" name="phoneNumber" placeholder="phone">
+    <button type="submit">Register</button>
+</form>
+
+
