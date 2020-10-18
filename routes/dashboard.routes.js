@@ -19,40 +19,27 @@ router.post("/dashboard/edit", (req, res, next) => {
   const id = { _id: req.session.loggedInUser._id};
   const { horoscope, age, occupation, genre, catchPhrase, phoneNumber} = req.body
 
+      function getAge(DOB) {
+        var today = new Date();
+        var birthDate = new Date(DOB);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age = age - 1;
+        }
+        // console.log('today´s date:', today)
+        // console.log('the person age:', age)
+        return age;
 
-//   var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-// var yyyy = today.getFullYear();
+      }
+      let dateB = req.session.loggedInUser.dateOfBirth
 
+      let ageVariable = getAge(dateB)
 
-// let today = new Date()
-
-
-// let  dOB = req.session.loggedInUser.dateOfbirth
-
-// agenumber= Number(today - dOB)
-
-// function getAge(DOB) {
-//   var today = new Date();
-//   var birthDate = new Date(DOB);
-//   var age = today.getFullYear() - birthDate.getFullYear();
-//   var m = today.getMonth() - birthDate.getMonth();
-//   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-//       age = age - 1;
-//   }
-
-//   return age;
-// }
-
-
-// document.write(today);
-// console.log('today´s date:', today)
-// console.log('the person age:', agenumber)
 
   UserModel.findByIdAndUpdate(id, {
     horoscope,
-    age: getAge(req.session.loggedInUser.dateOfBirth),
+    age: ageVariable,
     occupation,
     genre,
     catchPhrase,
@@ -69,28 +56,7 @@ router.post("/dashboard/edit", (req, res, next) => {
     });
 });
 /*
-router.post('/dashboard/edit', (req, res)=>{
-  const { horoscope, age, occupation, genre, catchPhrase, phoneNumber} = req.body
-  //console.log('Jorge is the king of Spain!')
-  UserModel.findOneAndUpdate({
-    horoscope: horoscope, 
-    age: age, 
-    occupation: occupation, 
-    genre: genre, 
-    catchPhrase: catchPhrase, 
-    phoneNumber: phoneNumber
-  })
-    .then(()=>{
-      console.log('Profile set up!')
-      res.redirect('/dashboard/home')
-    })
-    .catch((err) => {
-      console.log(err)
-      res.render('error.hbs', err)
-  })
-  
-    
-})
+ç
 
 */
 router.get('/dashboard/datelog', (req, res)=>{
