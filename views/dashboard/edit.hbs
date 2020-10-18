@@ -9,11 +9,28 @@
 <p>You again {{username}} ?! <br> 
 You are in dashboard/ edit page</p>
 
+
+{{!-- <form class="register-form"action="//dashboard/edit" method="POST">
+    <label >Hot</label>
+    <input type="email" name="email" placeholder="Enter email">
+    <label >Username</label>
+    <input type="name" name="username" placeholder="Enter username">
+    <label >Password</label>
+    <input type="password" name="password" placeholder="Enter password">
+    <label >Date of birth</label>
+    <input type="text" name="dateOfBirth" placeholder="dd/mm/yyyy">
+    <button  class="login-btn"type="submit">Register</button>
+</form> --}}
+
+
+
+
+
 <form action="/dashboard/edit" method="POST">
     <label >Horoscope</label>
     <input type="text" name="horoscope" placeholder="horoscope">
-    <label >Age</label>
-    <input type="number" name="age" placeholder="age">
+    {{!-- <label >Age</label>
+    <input type="number" name="age" placeholder="age"> --}}
     <label >Occupation</label>
     <input type="text" name="occupation" placeholder="occupation">
     <label >Genre</label>
