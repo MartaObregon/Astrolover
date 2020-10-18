@@ -22,7 +22,7 @@
   overflow: hidden; }
 
 .logo {
-  margin-top: 70px;
+  margin-top: 30px;
   margin-bottom: 20px;
   margin-left: 20px; }
 
@@ -133,6 +133,18 @@ input {
   border-radius: 25px;
   font-size: smaller; }
 
+.register-box {
+  background-color: #f06f6f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 70%;
+  width: 100%;
+  border-radius: 10px;
+  padding-top: 20px; }
+
 .register-form {
   display: flex;
   flex-direction: column;
@@ -156,9 +168,7 @@ input {
   width: 90%;
   text-align: center;
   display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-  padding-top: 15px; }
+  justify-content: center; }
 
 .dev-box {
   margin-top: 40px;

@@ -37,12 +37,13 @@ router.post('/login', (req, res)=>{
 })
 
 router.get('/register', (req, res)=>{
-  res.render('auth/register.hbs')
+  res.render('auth/register.hbs',)
 })
 
 router.post('/register', (req, res)=>{
   const {email, username, password, dateOfBirth} = req.body
 
+  
   // VALIDATION
   //if some input is not filled - FOR ALL
   

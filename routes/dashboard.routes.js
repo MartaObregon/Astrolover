@@ -6,7 +6,9 @@ const UserModel = require('../models/User.model')
 
 
 router.get('/dashboard/home', (req, res)=>{
-  res.render('dashboard/home.hbs', {username: req.session.loggedInUser.username})
+  console.log(req.session)
+  let user = req.session.loggedInUser
+  res.render('dashboard/home.hbs', {user})
 })
 
 router.get('/dashboard/edit', (req, res)=>{
@@ -17,7 +19,7 @@ router.get('/dashboard/edit', (req, res)=>{
 
 router.post("/dashboard/edit", (req, res, next) => { 
   const id = { _id: req.session.loggedInUser._id};
-  const { horoscope, age, occupation, genre, catchPhrase, phoneNumber} = req.body
+  const { horoscope, occupation, genre, catchPhrase, phoneNumber} = req.body
 
       function getAge(DOB) {
         var today = new Date();
