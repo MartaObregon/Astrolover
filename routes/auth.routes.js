@@ -127,7 +127,8 @@ router.post('/register', (req, res)=>{
 
 router.get('/logout', (req, res)=>{
   //console.log(username)
-  res.render('auth/logout.hbs', {username: req.session.destroy()})
+  req.session.destroy()
+  res.redirect('/')
 })
 
 
