@@ -27,8 +27,8 @@ You are in dashboard/ edit page</p>
 
 
 <form action="/dashboard/edit" method="POST">
-    <label >Horoscope</label>
-    <input type="text" name="horoscope" placeholder="horoscope">
+    {{!-- <label >Horoscope</label>
+    <input type="text" name="horoscope" placeholder="horoscope"> --}}
     <label >Occupation</label>
     <input type="text" name="occupation" placeholder="occupation">
     <label >Genre</label>
@@ -37,6 +37,8 @@ You are in dashboard/ edit page</p>
     <input type="text" name="catchPhrase" placeholder="catch phrase">
     <label >Phone number</label>
     <input type="number" name="phoneNumber" placeholder="phone">
+    <label >Upload Image (paste URL)</label>
+    <input type="text" name="image_url" placeholder="Enter image URL">
     <button type="submit">Save changes</button>
 </form>
 

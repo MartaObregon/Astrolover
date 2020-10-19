@@ -37,6 +37,9 @@ const userSchema = new Schema(
     },
     phoneNumber: {
       type: Number
+    },
+    image_url:{
+      type: String,
     }
     },
     {
