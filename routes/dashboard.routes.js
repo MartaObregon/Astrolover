@@ -56,7 +56,7 @@ router.get('/dashboard/home', (req, res)=>{
        let day = today.getDay();
        let month= today.getMonth();
        let horoscope = getHoroscope(day, month)
-        console.log(age)
+        console.log(user)
         user.dateofBirth = age
         user.horoscope = horoscope
         res.render('dashboard/home.hbs', {user})

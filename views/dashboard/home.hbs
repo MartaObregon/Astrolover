@@ -1,15 +1,53 @@
-<nav>
-  <a href="/dashboard/home">Home</a>
-  <a href="/dashboard/edit">Edit</a>
-  <a href="/dashboard/datelog">Datelog</a>
-  <a href="/dashboard/otherUser-profile">otherUser</a>
-  <a href="/dashboard/myPotentials">Potentials</a>
-</nav>
 
 
-<div>Hello {{user.username}}, age: {{user.dateofBirth}}! Your horoscope is {{user.horoscope}} <br> Your are in dashboard/home </div>
+<section >
 
-<img  style="width: 100px" src={{user.image_url}}>
+  <h2>Hello {{user.username}}</h2>
 
-<button><a href="/logout">LOGOUT</a></button>
+  <section class="home-info">
+    <img style="width: 100px" src={{user.image_url}}>
+    <div class="personal-info" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Your public info</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Horoscope: {{user.horoscope}}</h6>
+        <ul class="card-text">
+          <li>Age: {{user.dateofBirth}}</li>
+          <li>Occupation: {{user.occupation}}</li>
+          <li>Catchphrase: {{user.catchPhrase}}</li>
+        </ul>
+        <button><a href="/dashboard/edit" class="card-link">Edit</a></button>
+        <button><a href="/logout" class="card-link">Log Out</a></button>
+      </div>
+    </div>
+
+  </section>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="/dashboard/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard/myPotentials">My Potentials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard/datelog">Datelog</a>
+        </li>
+      </ul>
+  <section class="daily-horoscope">
+  
+    <h2>Your advice for today, {{user.horoscope}}</h2>
+
+    <p>Chill OUTT BROOOOO</p>
+
+
+
+
+  </section>
+
+
+
+</section>
+
+
+
+
   
