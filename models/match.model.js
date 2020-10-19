@@ -12,7 +12,8 @@ const matchSchema = new Schema(
     receiverId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user'
-  },
+    },
+    //conversation: [{senderId}, {message}]
     
     },
     {

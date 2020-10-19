@@ -49,6 +49,7 @@ function getAge(DOB) {
 }
 router.get('/dashboard/home', (req, res)=>{
     id = req.session.loggedInUser._id
+    console.log('here In dashboard')
     UserModel.findById(id)
       .then((user)=>{
         let age = getAge(user.dateOfBirth)
