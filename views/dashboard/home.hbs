@@ -1,8 +1,19 @@
 
 
-<section >
+<img src="../images/Astrolover-logo.png" alt="logo" class="logo">
 
   <h2>Hello {{user.username}}</h2>
+  <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="/dashboard/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard/myPotentials">My Potentials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard/datelog">Datelog</a>
+        </li>
+      </ul>
 
   <section class="home-info">
     <img style="width: 100px" src={{user.image_url}}>
@@ -21,31 +32,22 @@
     </div>
 
   </section>
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="/dashboard/home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard/myPotentials">My Potentials</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard/datelog">Datelog</a>
-        </li>
-      </ul>
+      
   <section class="daily-horoscope">
   
-    <h2>Your advice for today, {{user.horoscope}}</h2>
+    <h5>Your advice for today, {{user.horoscope}}</h5>
 
     <p>Chill OUTT BROOOOO</p>
-
-
-
 
   </section>
 
 
 
-</section>
+
+
+
+
+
 
 
 

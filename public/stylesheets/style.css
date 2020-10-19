@@ -175,4 +175,49 @@ input {
   display: flex;
   flex-direction: row; }
 
+.home-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  height: 40%;
+  width: 100%;
+  border-radius: 10px;
+  border: 5px solid #f06f6f; }
+
+.card-text > li {
+  list-style: none; }
+
+.home-info > img {
+  width: 10%;
+  border: 5px solid #223843; }
+
+.daily-horoscope {
+  margin-top: 30px; }
+
+.potentials-list {
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  margin: 20px; }
+
+.card-potential {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly; }
+
+.card-body {
+  padding: 0 auto; }
+
+.card-potential > img {
+  margin-right: 20px;
+  height: 100%;
+  width: 150px;
+  margin: 10px; }
+
 /*# sourceMappingURL=style.css.map */
