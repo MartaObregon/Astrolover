@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 // var bcrypt = require('bcryptjs');
-const { getInfo} = require('../helpers/utils')
+const { getInfo, getMatch} = require('../helpers/utils')
 const UserModel = require('../models/User.model')
 
 
@@ -55,9 +55,7 @@ router.get('/dashboard/datelog', (req, res)=>{
   res.render('dashboard/datelog.hbs', {username: req.session.loggedInUser.username})
 })
 
-router.get('/dashboard/otherUser-profile', (req, res)=>{
-  res.render('dashboard/otherUser-profile.hbs', {username: req.session.loggedInUser.username})
-})
+
 
 /*
 router.get('/dashboard/myPotentials', (req, res)=>{
@@ -67,11 +65,17 @@ router.get('/dashboard/myPotentials', (req, res)=>{
 
 
 router.get('/dashboard/myPotentials', (req, res, next) => {
- 
+ console.log("string")
+
+
+
   UserModel.find()
     .then((lover) => {
+
         let updatedUsers = lover.map((updatedUser)=>{
-          return getInfo(updatedUser)
+          return getInfo(getMatch(updatedUser.horoscope))
+
+      
         })
       
         console.log('my lover is ', updatedUsers)
@@ -83,7 +87,14 @@ router.get('/dashboard/myPotentials', (req, res, next) => {
 });
 
 
-
+router.get('/dashboard/profile/:id', (req, res)=>{
+  let id = req.params.id
+  UserModel.findById(id)
+    .then((user)=>{
+      res.render('dashboard/otherUser-profile.hbs', {user})
+    })
+  
+})
 
 
 
