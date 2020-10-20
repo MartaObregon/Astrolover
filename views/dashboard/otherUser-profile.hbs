@@ -7,8 +7,12 @@
 </nav>
 
 
-<p>Welcome {{user.username}}! <br> 
-You are in dashboard/ otherUser-profile page</p>
+<p>this is {{user.username}} page! <br> 
+You are in dashboard/ {{user._id}} page</p>
+
+<form method= "POST" action="/dashboard/profile/{{user._id}}">
+<button type="submit">Request date</button>
+</form>
 
 
 

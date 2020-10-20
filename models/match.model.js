@@ -6,19 +6,18 @@ const matchSchema = new Schema(
         enum: ["pending", "confirmed", "declined"],
     },
     senderId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'user'
     },
     receiverId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'user'
     },
-    //conversation: [{senderId}, {message}]
+ 
     
     },
     {
         timestamps: true
     }
 )
-
-module.exports = model('match', userSchema)
+module.exports = model("match", matchSchema)

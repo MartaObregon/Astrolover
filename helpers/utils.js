@@ -42,10 +42,10 @@ function getAge(DOB) {
 }
 
 function getInfo(lover){
-  console.log("Inside utils", lover)
+
   let user = JSON.parse(JSON.stringify(lover))
   var today = new Date(user.dateOfBirth)
-  console.log('TODAY', today)
+
   let day = today.getDate();
   let month= today.getMonth()+ 1;
   let horoscope = getHoroscope(day, month)

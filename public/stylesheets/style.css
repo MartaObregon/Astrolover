@@ -16,7 +16,6 @@
   border-radius: 13px;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   border: 1px solid lightgray;
   overflow: hidden; }
@@ -219,5 +218,32 @@ input {
   height: 100%;
   width: 150px;
   margin: 10px; }
+
+.datelog-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  overflow: scroll; }
+
+.card-request {
+  border: 5px solid #223843;
+  padding: 20px; }
+
+.eachlover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50%;
+  border: 2px solid #f06f6f;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 15px; }
+
+.eachlover > img {
+  width: 15%;
+  border: 3px solid #223843;
+  margin-right: 10px; }
 
 /*# sourceMappingURL=style.css.map */
