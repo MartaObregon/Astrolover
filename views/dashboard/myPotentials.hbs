@@ -15,13 +15,13 @@
       </ul>
 
 <div class="potentials-box">
-<div>Your compatibilities are:</div>
+<div>Your compatibilities are:{{user.matching}}</div>
 </div>
 <div class="potentials-list">
   
   {{#each lover}}
   <div class="card-potential" >
-    <img src={{image_url}} class="card-img-top" style="width:50px">
+    <img src={{image_url}} class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">{{username}},{{dateOfBirth}}</h5>
       <h6 class="card-title">{{horoscope}},</h6>

@@ -50,10 +50,13 @@ function getInfo(lover){
   let month= today.getMonth()+ 1;
   let horoscope = getHoroscope(day, month)
   let age = getAge(user.dateOfBirth)
-     
 
-     user.dateOfBirth = age
+     
+    
+      user.dateOfBirth = age
       user.horoscope = horoscope
+      let matching = getMatch(user.horoscope)
+      user.matching = matching
 
       return user
 }
@@ -62,57 +65,56 @@ function getInfo(lover){
 function getMatch (horoscope){
   let optionA = ""
   let optionB = ""
-  let matching = [optionA, optionB]
   if(horoscope==="Aries"){
-     optionA = "Leo"
+     optionA =  "Leo"
      optionB = "Sagittarius"
-     return matching
+     
   }  if(horoscope==="Taurus"){
     optionA = "Cancer"
     optionB = "Capricorn"
-    return matching
+    
  }  if(horoscope==="Cancer"){
   optionA = "Scorpio"
   optionB = "Taurus"
-  return matching
+  
 }  if(horoscope==="Leo"){
   optionA = "Aries"
   optionB = "Aquarius"
-  return matching
+  
 }  if(horoscope==="Virgo"){
   optionA = "Capricorn"
   optionB = "Scorpio"
-  return matching
+  
 }  if(horoscope==="Libra"){
   optionA = "Gemini"
   optionB = "Libra"
-  return matching
+  
 }  if(horoscope==="Scorpio"){
   optionA = "Cancer"
   optionB = "Virgo"
-  return matching
+  
 }  if(horoscope==="Sagittarius"){
   optionA = "Aries"
   optionB = "Aquarius"
-  return matching
+  
 }  if(horoscope==="Aquarius"){
   optionA = "Gemini"
   optionB = "Libra"
-  return matching
+  
 }  if(horoscope==="Capricorn"){
   optionA = "Virgo"
   optionB = "Taurus"
-  return matching
+  
 }if(horoscope==="Pisces"){
   optionA = "Scorpio"
   optionB = "Cancer"
-  return matching
+  
 }if(horoscope==="Gemini"){
   optionA = "Leo"
   optionB = "Aquarius"
-  return matching
+  
 }
-
+  return [optionA, optionB]
 
 }
 
@@ -121,5 +123,5 @@ function getMatch (horoscope){
 
 module.exports={
   getInfo,
-  getMatch,
+
 }

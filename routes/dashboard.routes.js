@@ -67,19 +67,15 @@ router.get('/dashboard/myPotentials', (req, res)=>{
 router.get('/dashboard/myPotentials', (req, res, next) => {
  console.log("string")
 
-
+let user = getInfo(req.session.loggedInUser)
 
   UserModel.find()
     .then((lover) => {
 
-        let updatedUsers = lover.map((updatedUser)=>{
-          return getInfo(getMatch(updatedUser.horoscope))
-
-      
+        let updatedUsers = lover.filter((updatedUser)=>{
+         return user.matching.includes(updatedUser.horoscope)
         })
-      
-        console.log('my lover is ', updatedUsers)
-        res.render('dashboard/myPotentials.hbs', {lover: updatedUsers})
+        res.render('dashboard/myPotentials.hbs', {lover: updatedUsers, user})
     })
     .catch((err) => {
         console.log('Not working sorry')
