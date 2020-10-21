@@ -49,10 +49,20 @@
   
     <div class="card-request">
       <p>list of people that status is confirmed</p>
-      {{#each matchesconfirmedarr}}
-        <div>{{receiverId.username}}, {{status}} a date with you</div>
-        {{!-- <p>Congratz! this is {{receiverId.username}} phone number: {{receiverId.phoneNumber}} Send a hello!</p> --}}
-      {{/each}}
+      {{#if matchesconfirmedRarr}}
+        {{#each matchesconfirmedRarr}}
+          <div>You {{status}} a date with {{senderId.username}}</div>
+          <p>Congratz! this is {{senderId.username}} phone number: {{senderId.phoneNumber}} Send a hello!</p>
+      
+        {{/each}}
+      {{/if}}
+       {{#if matchesconfirmedSarr}}
+        {{#each matchesconfirmedSarr}}
+          <div> {{receiverId.username}}  {{status}} a date with you </div>
+          <p>Congratz! this is {{receiverId.username}} phone number: {{receiverId.phoneNumber}} Send a hello!</p>
+      
+        {{/each}}
+      {{/if}}
     </div>
 
     <div> People that declined my request</div>

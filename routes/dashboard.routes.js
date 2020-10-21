@@ -70,8 +70,14 @@ router.get('/dashboard/datelog', (req, res)=>{
       status: "declined"
     }).populate('receiverId').populate('senderId')
 
-    let matchConfirmedPromise= MatchModel.find({
+    let matchConfirmedSenderPromise= MatchModel.find({
       senderId : req.session.loggedInUser._id,
+      status: "confirmed"
+    }).populate('receiverId').populate('senderId')
+
+
+    let matchConfirmedReceiverPromise= MatchModel.find({
+      receiverId : req.session.loggedInUser._id,
       status: "confirmed"
     }).populate('receiverId').populate('senderId')
 
@@ -79,11 +85,12 @@ router.get('/dashboard/datelog', (req, res)=>{
         senderPromise,
         receiverPromise,
         matchDeclinedPromise,
-        matchConfirmedPromise
+        matchConfirmedReceiverPromise,
+        matchConfirmedSenderPromise
       ])
         .then((usersArr)=>{
           // console.log(usersArr)
-          res.render('dashboard/datelog.hbs', {username: req.session.loggedInUser.username, senderarr: usersArr[0], receiverarr: usersArr[1], matchesdeclinedarr: usersArr[2], matchesconfirmedarr: usersArr[3] })
+          res.render('dashboard/datelog.hbs', {username: req.session.loggedInUser.username, senderarr: usersArr[0], receiverarr: usersArr[1], matchesdeclinedarr: usersArr[2], matchesconfirmedRarr: usersArr[3], matchesconfirmedSarr: usersArr[4] })
         })
 
 })
