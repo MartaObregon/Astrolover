@@ -10,9 +10,10 @@ const logger       = require('morgan');
 const path         = require('path');
 //added 17.10
 const bcrypt = require('bcryptjs')
+let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/astrolover'
 
 mongoose
-  .connect('mongodb://localhost/astrolover', {useNewUrlParser: true,  useUnifiedTopology: true } )
+  .connect(MONGODB_URI, {useNewUrlParser: true,  useUnifiedTopology: true } )
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
