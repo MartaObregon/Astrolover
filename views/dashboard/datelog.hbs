@@ -36,12 +36,29 @@
       <p>I RECEIVED REQUEST FROM </p>
       {{#each receiverarr}}
       <div>{{senderId.username}} {{status}}</div>
+      <div class="btn-box">
+        <form method="POST" action ="/dashboard/datelog/confirm/{{_id}}">
+          <button type ="submit">Confirm date</button>
+        </form>
+        <form method="POST" action ="/dashboard/datelog/decline/{{_id}}">
+          <button type="submit"> Decline date</button>
+        </form>
+      </div>
       {{/each}}
     </div>
   
     <div class="card-request">
       <p>list of people that status is confirmed</p>
+      {{#each matchesconfirmedarr}}
+        <div>{{receiverId.username}}, {{status}} a date with you</div>
+        {{!-- <p>Congratz! this is {{receiverId.username}} phone number: {{receiverId.phoneNumber}} Send a hello!</p> --}}
+      {{/each}}
     </div>
+
+    <div> People that declined my request</div>
+    {{#each matchesdeclinedarr}}
+      <div>{{receiverId.username}}, {{status}} a date with you</div>
+    {{/each}}
   
   </section>
 

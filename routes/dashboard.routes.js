@@ -8,6 +8,7 @@ const MatchModel = require('../models/match.model')
 
 
 
+
 router.get('/dashboard/home', (req, res)=>{
     id = req.session.loggedInUser._id
     // console.log('here In dashboard')
@@ -53,26 +54,71 @@ router.get('/dashboard/datelog', (req, res)=>{
   
 
   let senderPromise = MatchModel.find({
-    senderId: req.session.loggedInUser._id
+    senderId: req.session.loggedInUser._id,
+    status: "pending"
   }).populate('receiverId')
 
 
 
     let receiverPromise = MatchModel.find({
-      receiverId: req.session.loggedInUser._id
+      receiverId: req.session.loggedInUser._id,
+      status: "pending"
     }).populate('senderId')
     
+    let matchDeclinedPromise= MatchModel.find({
+      senderId : req.session.loggedInUser._id,
+      status: "declined"
+    }).populate('receiverId').populate('senderId')
+
+    let matchConfirmedPromise= MatchModel.find({
+      senderId : req.session.loggedInUser._id,
+      status: "confirmed"
+    }).populate('receiverId').populate('senderId')
 
       Promise.all([
         senderPromise,
-        receiverPromise
+        receiverPromise,
+        matchDeclinedPromise,
+        matchConfirmedPromise
       ])
         .then((usersArr)=>{
-          console.log(usersArr)
-          res.render('dashboard/datelog.hbs', {username: req.session.loggedInUser.username, senderarr: usersArr[0], receiverarr: usersArr[1]})
+          // console.log(usersArr)
+          res.render('dashboard/datelog.hbs', {username: req.session.loggedInUser.username, senderarr: usersArr[0], receiverarr: usersArr[1], matchesdeclinedarr: usersArr[2], matchesconfirmedarr: usersArr[3] })
         })
 
 })
+
+router.post('/dashboard/datelog/decline/:id', (req, res)=>{
+
+let id = req.params.id
+MatchModel.findByIdAndUpdate(id, {status:"declined"})
+    .then(()=>{
+      
+      res.redirect('/dashboard/datelog')
+    })
+
+    .catch((err)=>{
+      console.log("ERROR", err)
+    })
+
+
+})
+
+router.post('/dashboard/datelog/confirm/:id', (req, res)=>{
+
+  let id = req.params.id
+  MatchModel.findByIdAndUpdate(id, {status:"confirmed"})
+      .then(()=>{
+        
+        res.redirect('/dashboard/datelog')
+      })
+  
+      .catch((err)=>{
+        console.log("ERROR", err)
+      })
+  
+  
+  })
 
 router.post('/dashboard/profile/:id', (req, res)=>{
 
