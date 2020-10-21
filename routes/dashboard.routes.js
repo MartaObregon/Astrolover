@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 // var bcrypt = require('bcryptjs');
 const { getInfo} = require('../helpers/utils')
-const UserModel = require('../models/User.model')
+const UserModel = require('../models/user.model')
 const MatchModel = require('../models/match.model')
 
 
