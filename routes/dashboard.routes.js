@@ -149,7 +149,7 @@ router.post('/dashboard/profile/:id', (req, res)=>{
 })
 
 router.get('/dashboard/myPotentials', (req, res, next) => {
-  console.log("string")
+
  let user = getInfo(req.session.loggedInUser)
    UserModel.find()
      .then((lover) => {
@@ -168,9 +168,11 @@ router.get('/dashboard/myPotentials', (req, res, next) => {
 
 router.get('/dashboard/profile/:id', (req, res)=>{
   let id = req.params.id
+  
   UserModel.findById(id)
     .then((user)=>{
-      res.render('dashboard/otherUser-profile.hbs', {user})
+      let lover = getInfo(user)
+      res.render('dashboard/otherUser-profile.hbs', {user: lover})
     })
   
 })

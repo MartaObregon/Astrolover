@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap");
 .body {
   font-family: 'Libre Baskerville', serif;
-  background-color: #d8b4a0;
-  padding: 50px;
+  background-color: #223843;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+section {
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -10,7 +15,7 @@
 .container {
   background-color: white;
   font-family: 'Libre Baskerville', serif;
-  height: 620px;
+  height: 800px;
   width: 380px;
   background-color: white;
   border-radius: 13px;
@@ -26,19 +31,25 @@
   margin-left: 20px; }
 
 .landing-box {
-  background-color: #f06f6f;
-  height: 75%;
+  margin-top: 100px;
+  background-color: white;
+  height: 500px;
   width: 100%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px; }
+  margin-bottom: 100px;
+  box-shadow: 4px #223843; }
+
+.hr {
+  width: 80%;
+  border: 0.5px solid #d8b4a0; }
 
 .landing-btn-box {
-  height: 30%;
-  width: 100%;
+  height: 100px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,7 +57,7 @@
   justify-content: space-around; }
 
 .landing-text {
-  color: white;
+  color: #223843;
   width: 50%;
   display: flex;
   align-items: center;
@@ -78,8 +89,7 @@
   padding: 30px; }
 
 .landing-btn-box > button {
-  background-color: white;
-  border: 3px solid #223843;
+  border: 3px solid  #f06f6f;
   width: 80%;
   height: 30%;
   display: flex;
@@ -89,16 +99,17 @@
   font-size: smaller; }
 
 .login-box {
-  background-color: #f06f6f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 70%;
-  width: 100%;
+  margin-top: 100px;
+  background-color: white;
+  height: 500px;
+  width: 120%;
   border-radius: 10px;
-  margin-bottom: 100px; }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  box-shadow: 4px #223843; }
 
 .login-form {
   height: 80%;
@@ -123,7 +134,7 @@ input {
 
 .login-btn {
   background-color: white;
-  border: 3px solid #223843;
+  border: 3px solid #f06f6f;
   width: 80%;
   height: 10%;
   display: flex;
@@ -133,16 +144,17 @@ input {
   font-size: smaller; }
 
 .register-box {
-  background-color: #f06f6f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 70%;
-  width: 100%;
+  margin-top: 100px;
+  background-color: white;
+  padding: 30px;
+  width: 60%;
   border-radius: 10px;
-  padding-top: 20px; }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  box-shadow: 4px #223843; }
 
 .register-form {
   display: flex;
@@ -150,12 +162,10 @@ input {
   align-items: center; }
 
 .register-form > button {
-  margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-top: 30px; }
 
 .register-form > label {
-  margin-top: 10px;
-  color: #223843; }
+  margin-top: 10px; }
 
 .register-form > input {
   border: 2px solid #223843; }
@@ -174,23 +184,77 @@ input {
   display: flex;
   flex-direction: row; }
 
+.home-box {
+  margin-top: 100px;
+  background-color: white;
+  padding: 30px;
+  width: 80%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  box-shadow: 4px #223843; }
+
 .home-info {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin: 20px;
   flex-direction: row;
-  text-align: center;
   height: 40%;
   width: 100%;
-  border-radius: 10px;
-  border: 5px solid #f06f6f; }
+  border-radius: 10px; }
+
+.card-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.img-box {
+  border: 5px  solid #223843;
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; }
+
+.img-box > img {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.card-body > h5 {
+  margin-right: 100px; }
 
 .card-text > li {
   list-style: none; }
 
-.home-info > img {
-  width: 10%;
-  border: 5px solid #223843; }
+.btn-home {
+  width: 60%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.btn-home > button {
+  border: 3px solid #223843;
+  border-radius: 7px; }
+
+.btn-home > form > button {
+  border: 3px solid #f06f6f;
+  border-radius: 7px;
+  color: #223843; }
+
+.btn-home > button > a {
+  color: #223843; }
+
+.nav-link {
+  color: #f06f6f; }
 
 .daily-horoscope {
   margin-top: 30px; }
@@ -201,17 +265,6 @@ input {
   display: flex;
   flex-direction: column;
   margin: 20px; }
-
-.card-potential {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  padding: 30px;
-  display: flex;
-  justify-content: space-evenly; }
-
-.card-body {
-  padding: 0 auto; }
 
 .card-potential > img {
   margin-right: 20px;

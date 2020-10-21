@@ -1,49 +1,58 @@
+<div class="home-box">
+  <img src="../images/Astrolover-logo.png" alt="logo" class="logo">
 
-
-<img src="../images/Astrolover-logo.png" alt="logo" class="logo">
-
-  <h2>Hello {{user.username}}</h2>
+  <h5>Good afternoon, {{user.username}}!</h5>
+  <hr class="hr">
   <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="/dashboard/home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard/myPotentials">My Potentials</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard/datelog">Datelog</a>
-        </li>
-      </ul>
+    <li class="nav-item">
+      <a class="nav-link active" href="/dashboard/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard/myPotentials">My Potentials</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard/datelog">Datelog</a>
+    </li>
+  </ul>
 
-  <section class="home-info">
-    <img style="width: 100px" src={{user.image_url}}>
-    <div class="personal-info" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Your public info</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Horoscope: {{user.horoscope}}</h6>
-        <ul class="card-text">
-          <li>Age: {{user.dateOfBirth}}</li>
-          <li>Occupation: {{user.occupation}}</li>
-          <li>Catchphrase: {{user.catchPhrase}}</li>
-        </ul>
-        <button><a href="/dashboard/edit" class="card-link">Edit</a></button>
-        <button><a href="/logout" class="card-link">Log Out</a></button>
-      </div>
+
+  <div class="home-info">
+
+    {{#if user.image_url}}
+    <div class="img-box">
+      <img style="width: 200px" src={{user.image_url}}>
     </div>
+    {{/if}}
 
-  </section>
-      
+
+    <ul class="card-text">
+      <h5 class="card-subtitle mb-2 text-muted">{{user.username}},{{user.dateOfBirth}}</h5>
+      <li>{{user.horoscope}}</li>
+      <li>{{user.occupation}}</li>
+      <li>{{user.catchPhrase}}</li>
+
+
+      <div class="btn-home">
+        <button><a style="font-size: 9pt" href="/dashboard/edit" class="card-link">Edit</a></button>
+        <button><a style="font-size: 9pt" href="/logout" class="card-link">Log Out</a></button>
+      </div>
+    </ul>
+  </div>
+
+
+
+
   <section class="daily-horoscope">
-  
+
     <h5>Your advice for today, {{user.horoscope}}</h5>
 
-    <p>Chill OUTT BROOOOO</p>
+    <p>Take good rest!</p>
 
   </section>
 
 
 
-
+</div>
 
 
 

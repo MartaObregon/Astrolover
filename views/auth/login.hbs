@@ -1,28 +1,31 @@
-<img src="./images/Astrolover-logo.png" alt="logo" class="logo">
-<div class="login-box">
 
+<section>
+  
+  <div class="login-box">
+      <img src="./images/Astrolover-logo.png" alt="logo" class="logo">
 
-<form class="login-form" action="/login" method="POST">
-  <div class="form-group">
-    <label >Username</label>
-    <input type="text" name ="username" placeholder="Enter username" >
-  </div>
-  <div class="form-group">
-    <label >Password</label>
-    <input type="password" name="password" placeholder ="Enter password">
-  </div>
-    <div class="notregistered">
-        <small>Not registered? <a href="/register">Register here</a></small>
+  <form class="login-form" action="/login" method="POST">
+    <div class="form-group">
+      <label >Username</label>
+      <input type="text" name ="username" placeholder="Enter username" >
     </div>
-  <button type="submit" class="login-btn">Log In</button>
-</form>
-
-    
-</div>
-
-{{#if message}}
-    <div class="message-err">
-        <p >{{message}}</p>
+    <div class="form-group">
+      <label >Password</label>
+      <input type="password" name="password" placeholder ="Enter password">
     </div>
-    
-    {{/if}}
+      <div class="notregistered">
+          <small>Not registered? <a href="/register">Register here</a></small>
+      </div>
+    <button type="submit" class="login-btn">Log In</button>
+  </form>
+
+      
+  </div>
+
+  {{#if message}}
+      <div class="message-err">
+          <p >{{message}}</p>
+      </div>
+      
+      {{/if}}
+</section>

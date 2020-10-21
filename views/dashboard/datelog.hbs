@@ -18,21 +18,21 @@
   <section class="datelog-box">
   
   
-    <div class="card-request">
+    <div >
       <p>I SENT REQUEST TO...</p>
       {{#each senderarr}}
       <div class="eachlover">
-        <img   src={{receiverId.image_url}}>
-        <div class="lover-text">
+        {{!-- <img   src={{receiverId.image_url}}> --}}
+        {{!-- <div class="lover-text"> --}}
         <p>{{receiverId.username}}</p>
         <p>Status: {{status}} </p>
-        </div>
+        {{!-- </div> --}}
         {{!-- <button><a href="/profile/{{this.receiverId._id}}">Go to profile</a></button> --}}
       </div>
       {{/each}}
     </div>
   
-    <div class="card-request">
+    <div >
       <p>I RECEIVED REQUEST FROM </p>
       {{#each receiverarr}}
       <div>{{senderId.username}} {{status}}</div>
@@ -47,7 +47,7 @@
       {{/each}}
     </div>
   
-    <div class="card-request">
+    <div >
       <p>list of people that status is confirmed</p>
       {{#if matchesconfirmedRarr}}
         {{#each matchesconfirmedRarr}}
