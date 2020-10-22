@@ -1,46 +1,25 @@
-<nav>
-  <a href="/dashboard/home">Home</a>
-  <a href="/dashboard/edit">Edit</a>
-  <a href="/dashboard/datelog">Datelog</a>
-  <a href="/dashboard/otherUser-profile">otherUser</a>
-  <a href="/dashboard/myPotentials">Potentials</a>
-</nav>
-
-<p>You again {{username}} ?! <br> 
-You are in dashboard/ edit page</p>
-
-
-{{!-- <form class="register-form"action="//dashboard/edit" method="POST">
-    <label >Hot</label>
-    <input type="email" name="email" placeholder="Enter email">
-    <label >Username</label>
-    <input type="name" name="username" placeholder="Enter username">
-    <label >Password</label>
-    <input type="password" name="password" placeholder="Enter password">
-    <label >Date of birth</label>
-    <input type="text" name="dateOfBirth" placeholder="dd/mm/yyyy">
-    <button  class="login-btn"type="submit">Register</button>
-</form> --}}
 
 
 
+<div class="register-box">
+    <img src="/images/Astrolover-logo.png" alt="logo" class="logo">
+    <h5>Edit your profile</h5>
+    <h5>{{user.username}}</h5>
+    <hr class="hr">
+  <form action="/dashboard/edit" method="POST" class="register-form">
 
+      <label >Occupation</label>
+      <input value="{{user.occupation}}" type="text" name="occupation" placeholder="occupation">
+      <label >Genre</label>
+      <input value="{{user.genre}}" type="text" name="genre" placeholder="genre">
+      <label >Catch phrase</label>
+      <input value="{{user.catchPhrase}}" type="text" name="catchPhrase" placeholder="catch phrase">
+      <label >Phone number</label>
+      <input value="{{user.phoneNumber}}" type="number" name="phoneNumber" placeholder="phone">
+      <label >Upload Image (paste URL)</label>
+      <input  value="{{user.image_url}}" type="text" name="image_url" placeholder="Enter image URL">
+      <button class="login-btn"type="submit">Save changes</button>
+  </form>
 
-<form action="/dashboard/edit" method="POST">
-    {{!-- <label >Horoscope</label>
-    <input type="text" name="horoscope" placeholder="horoscope"> --}}
-    <label >Occupation</label>
-    <input type="text" name="occupation" placeholder="occupation">
-    <label >Genre</label>
-    <input type="text" name="genre" placeholder="genre">
-    <label >Catch phrase</label>
-    <input type="text" name="catchPhrase" placeholder="catch phrase">
-    <label >Phone number</label>
-    <input type="number" name="phoneNumber" placeholder="phone">
-    <label >Upload Image (paste URL)</label>
-    <input type="text" name="image_url" placeholder="Enter image URL">
-    <button type="submit">Save changes</button>
-</form>
-
-
-<button><a href="/logout">LOGOUT</a></button>
+</div>
+{{!-- <button><a href="/logout">LOGOUT</a></button> --}}

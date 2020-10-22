@@ -22,8 +22,8 @@ router.get('/dashboard/home', (req, res)=>{
 })
 
 router.get('/dashboard/edit', (req, res)=>{
-  res.render('dashboard/edit.hbs', {username: req.session.loggedInUser.username})
-  // console.log(req.session.loggedInUser)
+  res.render('dashboard/edit.hbs', {user: req.session.loggedInUser})
+  
   
 })
 
@@ -40,7 +40,12 @@ router.post("/dashboard/edit", (req, res, next) => {
   })
     .then(() => {
       console.log("Data was updated successfully.");
-      res.redirect("/dashboard/home");
+      UserModel.findById(id)
+        .then((updateduser)=>{
+          req.session.loggedInUser = updateduser
+          res.redirect("/dashboard/home");
+        })
+      
     })
     .catch((err) => {
       console.log("Something has gone horribly wrong in editing.", err);
@@ -90,7 +95,7 @@ router.get('/dashboard/datelog', (req, res)=>{
       ])
         .then((usersArr)=>{
           // console.log(usersArr)
-          res.render('dashboard/datelog.hbs', {username: req.session.loggedInUser.username, senderarr: usersArr[0], receiverarr: usersArr[1], matchesdeclinedarr: usersArr[2], matchesconfirmedRarr: usersArr[3], matchesconfirmedSarr: usersArr[4] })
+          res.render('dashboard/datelog.hbs', {user: req.session.loggedInUser, senderarr: usersArr[0], receiverarr: usersArr[1], matchesdeclinedarr: usersArr[2], matchesconfirmedRarr: usersArr[3], matchesconfirmedSarr: usersArr[4] })
         })
 
 })

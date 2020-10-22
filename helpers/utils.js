@@ -87,7 +87,7 @@ function getMatch (horoscope){
   
 }  if(horoscope==="Libra"){
   optionA = "Gemini"
-  optionB = "Libra"
+  optionB = "Taurus"
   
 }  if(horoscope==="Scorpio"){
   optionA = "Cancer"
@@ -110,11 +110,11 @@ function getMatch (horoscope){
   optionB = "Cancer"
   
 }if(horoscope==="Gemini"){
-  optionA = "Leo"
+  optionA = "Libra"
   optionB = "Aquarius"
   
 }
-  return [optionA, optionB]
+  return [optionA,optionB]
 
 }
 

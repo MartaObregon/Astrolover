@@ -1,77 +1,135 @@
-<img src="../images/Astrolover-logo.png" alt="logo" class="logo">
+<section class="home-box">
 
-  
-  <h2>Hello {{username}}</h2>
-  <img src ={{image_url}}>
+
+  <img src="../images/Astrolover-logo.png" alt="logo" class="logo">
+  <div class="user-info">
+
+    {{#if user.image_url}}
+    <div class="img-box1">
+      <img style="width: 190px" src={{user.image_url}}>
+    </div>
+    {{/if}}
+    <h4>{{user.username}}</h4>
+  </div>
+  <hr class="hr">
   <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link " href="/dashboard/home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard/myPotentials">My Potentials</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/dashboard/datelog">Datelog</a>
-        </li>
-      </ul>
+    <li class="nav-item">
+      <a class="nav-link " href="/dashboard/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard/myPotentials">My Potentials</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/dashboard/datelog">Datelog</a>
+    </li>
+  </ul>
 
-  <section class="datelog-box">
-  
-  
-    <div >
-      <p>I SENT REQUEST TO...</p>
-      {{#each senderarr}}
-      <div class="eachlover">
-        {{!-- <img   src={{receiverId.image_url}}> --}}
-        {{!-- <div class="lover-text"> --}}
-        <p>{{receiverId.username}}</p>
-        <p>Status: {{status}} </p>
-        {{!-- </div> --}}
-        {{!-- <button><a href="/profile/{{this.receiverId._id}}">Go to profile</a></button> --}}
+  <div class="potential-box">
+
+
+    <div class="potentials-list1">
+      <div class="container1">
+        <div class="row">
+          <div class="col-datelog">
+            <div class="requestsent">
+              <h5>Waiting for an answer...</h5>
+              <hr class="hr">
+              {{#each senderarr}}
+              <div class="eachlover">
+                <div class="user-info1">
+                  {{#if receiverId.image_url}}
+                  <div class="img-box2">
+                    <img style="width: 90px" src={{receiverId.image_url}}>
+                  </div>
+                  {{/if}}
+                  <h4><a href="profile/{{receiverId._id}}">{{receiverId.username}}</a>
+                  </h4>
+                  <p>Status: {{status}} </p>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-datelog">
+            <div class="requestsent">
+              <h5>Astrolovers interested on you...</h5>
+              <hr class="hr">
+              {{#each receiverarr}}
+              <div class="eachlover">
+                <div class="user-info1">
+                  {{#if senderId.image_url}}
+                  <div class="img-box2">
+                    <img style="width: 90px" src={{senderId.image_url}}>
+                  </div>
+                  {{/if}}
+                  <h4><a href="profile/{{senderId._id}}">{{senderId.username}}</a>
+                  </h4>
+                  <div class="btn-box">
+                    <form method="POST" action="/dashboard/datelog/confirm/{{_id}}">
+                      <button type="submit" class="btn btn-outline-success">Confirm Date</button>
+                    </form>
+                    <form method="POST" action="/dashboard/datelog/decline/{{_id}}">
+                      <button type="submit" class="btn btn-outline-danger">Decline date</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              {{/each}}
+            </div>
+          </div>
+          <div class="w-100"></div>
+          <div class="col-datelog">
+            <div class="requestsent">
+            <div class="confirmed-list">
+              <h5>My Astromatches</h5>
+              <hr class="hr">
+              {{#if matchesconfirmedRarr}}
+              {{#each matchesconfirmedRarr}}
+              <div class="eachlover">
+                <div class="user-info1">
+                  {{#if senderId.image_url}}
+                  <div class="img-box2">
+                    <img style="width: 90px" src={{senderId.image_url}}>
+                  </div>
+                  {{/if}}
+                  <h4> Congratz! You {{status}} a date with {{senderId.username}} </h4>
+                  <p>Phone number is {{senderId.phoneNumber}} <br>Send a hello!</p>
+                </div>
+              </div>
+              {{/each}}
+              {{/if}}
+            </div>
+
+            <div class="declined-list">
+
+              {{#if matchesdeclinedarr}}
+              {{#each matchesdeclinedarr}}
+              <div class="eachlover">
+                <div class="user-info1">
+                  {{#if senderId.image_url}}
+                  <div class="img-box2">
+                    <img style="width: 90px" src={{receiverId.image_url}}>
+                  </div>
+                  {{/if}}
+                  <h4>{{receiverId.username}} {{status}} a date with you</h4>
+                </div>
+              </div>
+              {{/each}}
+              {{/if}}
+
+            </div>
+            </div>
+          </div>
+         
+        </div>
       </div>
-      {{/each}}
+
+
+
+
+
+
+
     </div>
-  
-    <div >
-      <p>I RECEIVED REQUEST FROM </p>
-      {{#each receiverarr}}
-      <div>{{senderId.username}} {{status}}</div>
-      <div class="btn-box">
-        <form method="POST" action ="/dashboard/datelog/confirm/{{_id}}">
-          <button type ="submit">Confirm date</button>
-        </form>
-        <form method="POST" action ="/dashboard/datelog/decline/{{_id}}">
-          <button type="submit"> Decline date</button>
-        </form>
-      </div>
-      {{/each}}
-    </div>
-  
-    <div >
-      <p>list of people that status is confirmed</p>
-      {{#if matchesconfirmedRarr}}
-        {{#each matchesconfirmedRarr}}
-          <div>You {{status}} a date with {{senderId.username}}</div>
-          <p>Congratz! this is {{senderId.username}} phone number: {{senderId.phoneNumber}} Send a hello!</p>
-      
-        {{/each}}
-      {{/if}}
-       {{#if matchesconfirmedSarr}}
-        {{#each matchesconfirmedSarr}}
-          <div> {{receiverId.username}}  {{status}} a date with you </div>
-          <p>Congratz! this is {{receiverId.username}} phone number: {{receiverId.phoneNumber}} Send a hello!</p>
-      
-        {{/each}}
-      {{/if}}
-    </div>
-
-    <div> People that declined my request</div>
-    {{#each matchesdeclinedarr}}
-      <div>{{receiverId.username}}, {{status}} a date with you</div>
-    {{/each}}
-  
-  </section>
-
-
-
-<button><a href="/logout">LOGOUT</a></button>
+</section>

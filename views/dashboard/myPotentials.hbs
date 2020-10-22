@@ -1,34 +1,63 @@
-
-<img src="../images/Astrolover-logo.png" alt="logo" class="logo">
-
-  <h2>{{username}}</h2>
-  <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link " href="/dashboard/home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/dashboard/myPotentials">My Potentials</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard/datelog">Datelog</a>
-        </li>
-      </ul>
-
-<div class="potentials-box">
-<div>Your compatibilities are:{{user.matching}}</div>
-</div>
-<div class="potentials-list">
+<div class="home-box">
+  <img src="../images/Astrolover-logo.png" alt="logo" class="logo">
+  <div class="user-info">
   
-  {{#each lover}}
-  <div class="card-potential" >
-    <img src={{image_url}} class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">{{username}},{{dateOfBirth}}</h5>
-      <h6 class="card-title">{{horoscope}},</h6>
-      <p class="card-text">" {{catchPhrase}} "<br>{{occupation}}</p>
-      <a href="/dashboard/profile/{{_id}}" class="btn btn-primary">Go to Profile</a>
-    </div>
-  </div>
-{{/each}} 
-</div> 
+    {{#if user.image_url}}
+      <div class="img-box1">
+        <img style="width: 190px" src={{user.image_url}}>
+      </div>
+      {{/if}}
+      <h4>{{user.username}}</h4>
+      </div>
+  <hr class="hr">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link " href="/dashboard/home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/dashboard/myPotentials">My Potentials</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard/datelog">Datelog</a>
+    </li>
+  </ul>
 
+  <div class="potentials-box">
+    <div class="match-text">Your compatibilities are:{{user.matching}}</div>
+  </div>
+
+
+  <div class="potentials-list">
+   <div class="container">
+  <div class="row row-cols-2">
+    {{#each lover}}
+    <div class="col">
+        <div class="card-potential">
+        {{#if image_url}}
+        <div class="img-box">
+          <img style="width: 200px" src={{image_url}}>
+        </div>
+        {{/if}}
+  
+        <div class="card-body">
+          <ul class="card-text">
+            <h5 class="card-subtitle mb-2 text-muted">{{username}},{{dateOfBirth}}</h5>
+            <li>{{horoscope}}</li>
+            <li>{{occupation}}</li>
+            <li>{{catchPhrase}}</li>
+  
+         
+              <button class="btn-potential"><a href="/dashboard/profile/{{_id}}" >Go to Profile</a></button>
+            
+          </ul>
+  
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+  </div>
+  
+  </div>
