@@ -6,7 +6,7 @@
     <h5>Edit your profile</h5>
     <h5>{{user.username}}</h5>
     <hr class="hr">
-  <form action="/dashboard/edit" method="POST" class="register-form">
+  <form action="/dashboard/edit" method="POST" class="register-form" enctype="multipart/form-data" >
 
       <label >Occupation</label>
       <input value="{{user.occupation}}" type="text" name="occupation" placeholder="occupation">
@@ -17,9 +17,8 @@
       <label >Phone number</label>
       <input value="{{user.phoneNumber}}" type="number" name="phoneNumber" placeholder="phone">
       <label >Upload Image (paste URL)</label>
-      <input  value="{{user.image_url}}" type="text" name="image_url" placeholder="Enter image URL">
+      <input  type="file" name="imageUrl" accept="image/png, image/jpg" >
       <button class="login-btn"type="submit">Save changes</button>
   </form>
 
 </div>
-

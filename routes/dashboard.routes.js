@@ -5,7 +5,7 @@ const { getInfo} = require('../helpers/utils')
 const UserModel = require('../models/user.model')
 const MatchModel = require('../models/match.model')
 
-const uploader = require('../config/coudinary.config.js');
+const uploader = require('../config/cloudinary.config.js');
 
 
 

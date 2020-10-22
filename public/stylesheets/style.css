@@ -14,7 +14,7 @@ section {
 
 .container {
   background-color: white;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Libre Baskerville', serif;
   height: 800px;
   width: 380px;
   background-color: white;
@@ -246,7 +246,7 @@ input {
   list-style: none; }
 
 .btn-home {
-  width: 1 60%;
+  width: 1 60%;
   margin-top: 10px;
   display: flex;
   flex-direction: row;

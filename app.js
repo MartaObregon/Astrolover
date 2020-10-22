@@ -8,6 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+
 //added 17.10
 const bcrypt = require('bcryptjs')
 let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/astrolover'
@@ -78,5 +79,8 @@ app.use('/', authRoutes);
 
 const dashboardRoutes = require('./routes/dashboard.routes');
 app.use('/', dashboardRoutes);
+
+const cloudinary = require('./routes/file-upload.routes')
+app.use('/', cloudinary)
 
 module.exports = app;
