@@ -5,7 +5,7 @@ const { getInfo} = require('../helpers/utils')
 const UserModel = require('../models/user.model')
 const MatchModel = require('../models/match.model')
 
-
+const uploader = require('../config/coudinary.config.js');
 
 
 
@@ -27,16 +27,23 @@ router.get('/dashboard/edit', (req, res)=>{
   
 })
 
-router.post("/dashboard/edit", (req, res, next) => { 
+router.post("/dashboard/edit", uploader.single("imageUrl"), (req, res, next) => { 
   const id = { _id: req.session.loggedInUser._id};
   const { occupation, genre, catchPhrase, phoneNumber, image_url} = req.body
+
+  console.log('file is: ', req.file)
+  if (!req.file) {
+    next(new Error('No file uploaded!'));
+    return;
+  }
+  //return 
 
   UserModel.findByIdAndUpdate(id, {
     occupation,
     genre,
     catchPhrase,
     phoneNumber,
-    image_url,
+    image_url: req.file.path,
   })
     .then(() => {
       console.log("Data was updated successfully.");
