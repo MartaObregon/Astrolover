@@ -183,7 +183,8 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px; }
+  padding: 10px;
+  margin-bottom: 20px; }
 
 .message-err > p {
   margin: 0 auto; }
@@ -347,7 +348,8 @@ input {
 
 .user-info1 > h4 {
   font-size: 10pt;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-left: 15px; }
 
 .user-info1 > h4 > a {
   text-decoration: none;
@@ -359,7 +361,7 @@ input {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding: 5px;
+  padding: 9px;
   border-radius: 15px;
   border-width: 10px solid #223843;
   box-sizing: border-box;
@@ -367,7 +369,9 @@ input {
 
 .user-info1 > p {
   font-size: 10pt;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  text-align: center;
+  margin-left: 10px; }
 
 .requestsent {
   width: 100%;

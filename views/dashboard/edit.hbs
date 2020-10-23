@@ -1,5 +1,5 @@
 
-
+<section class="body-1">
 
 <div class="register-box">
     <img src="/images/Astrolover-logo.png" alt="logo" class="logo">
@@ -22,3 +22,12 @@
   </form>
 
 </div>
+
+  {{#if message}}
+      <div class="message-err">
+          <p >{{message}}</p>
+      </div>
+      
+      {{/if}}
+
+</section>

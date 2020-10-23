@@ -230,6 +230,7 @@ input{
   justify-content: center;
   align-items: center;
   padding: 10px;
+  margin-bottom: 20px;
   
 
 }
@@ -441,6 +442,7 @@ input{
 .user-info1>h4{
   font-size: 10pt;
   margin-bottom: 0;
+  margin-left: 15px;
 }
 
 
@@ -454,7 +456,7 @@ input{
   flex-direction: row;
    align-items: center;
    justify-content: space-around;
-   padding:5px;
+   padding:9px;
    border-radius: 15px;
    border-width: 10px solid #223843;
    box-sizing:border-box;
@@ -465,11 +467,13 @@ input{
 .user-info1>p{
   font-size: 10pt;
   margin-bottom: 0;
+  text-align: center;
+
+  margin-left: 10px;
 }
 .requestsent{
   width: 100%;
   height: 100%;
-  // border:5px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
