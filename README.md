@@ -157,7 +157,7 @@ Geo Location:
 
 The url to your repository and to your deployed project
 
-[Repository Link](http://github.com)
+[Repository Link](https://astrolover.herokuapp.com/)
 
 [Deploy Link](http://heroku.com)
 
