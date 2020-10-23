@@ -126,7 +126,6 @@ router.post('/register', (req, res)=>{
 
 
 router.get('/logout', (req, res)=>{
-  //console.log(username)
   req.session.destroy()
   res.redirect('/')
 })

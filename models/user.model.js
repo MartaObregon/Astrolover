@@ -40,6 +40,7 @@ const userSchema = new Schema(
     },
     image_url:{
       type: String,
+      default: "https://labs.paperpixel.net/facebook-cover-generator/img/profile_dummy.jpg"
     },
  
     

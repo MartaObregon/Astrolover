@@ -10,8 +10,12 @@ const uploader = require('../config/cloudinary.config.js');
 
 
 router.get('/dashboard/home', (req, res)=>{
+   
+    if(!req.session.loggedInUser){
+      res.redirect('/login')
+      return
+    }
     id = req.session.loggedInUser._id
-    // console.log('here In dashboard')
     UserModel.findById(id)
       .then((user)=>{
         let updatedUser = getInfo(user)
@@ -33,10 +37,10 @@ router.post("/dashboard/edit", uploader.single("imageUrl"), (req, res, next) => 
 
   console.log('file is: ', req.file)
   if (!req.file) {
-    next(new Error('No file uploaded!'));
+    res.redirect('/dashboard/home')
     return;
   }
-  //return 
+
 
   UserModel.findByIdAndUpdate(id, {
     occupation,

@@ -23,7 +23,8 @@
   </ul>
 
   <div class="potentials-box">
-    <div class="match-text">Your compatibilities are:{{user.matching}}</div>
+    
+    <div class="match-text">Your compatibilities are: |{{#each user.matching}}<span> {{this}} |</span>{{/each}}</div>
   </div>
 
 
