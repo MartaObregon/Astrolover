@@ -159,7 +159,7 @@ The url to your repository and to your deployed project
 
 [Repository Link](https://astrolover.herokuapp.com/)
 
-[Deploy Link](http://heroku.com)
+[Deploy Link](https://astrolover.herokuapp.com/)
 
 ### Slides
 
